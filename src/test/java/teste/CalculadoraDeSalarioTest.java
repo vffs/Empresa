@@ -25,7 +25,7 @@ public class CalculadoraDeSalarioTest {
 
     @Test
     public void deveCalcularSalarioParaDesenvolvedoresComSalarioAcimaDoLimite() {
-        //cenário do desconto de 10% se salario for maior que 3.000,00
+        //cenário do desconto de 20% se salario for maior que 3.000,00
         CalculadoraDeSalario calculadora = new CalculadoraDeSalario();
         
         Funcionario desenvolvedor = new Funcionario("Mauricio", 4000.0, Cargo.DESENVOLVEDOR);
