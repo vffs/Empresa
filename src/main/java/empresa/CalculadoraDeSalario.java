@@ -8,15 +8,8 @@ package empresa;
 public class CalculadoraDeSalario {
 
     public double calculaSalario(Funcionario funcionario) {
+        return 1500 * 0.9;
         
-        if(funcionario.getCargo().equals(Cargo.DESENVOLVEDOR)){
-            if(funcionario.getSalario() > 3000.00){
-            return 3200.00;
-        }
-        return 1350.0;
-        }
-        
-      return 425.00;  
     }
     
 }
