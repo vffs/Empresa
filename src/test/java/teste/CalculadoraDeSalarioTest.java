@@ -14,6 +14,7 @@ import org.junit.Test;
 
 public class CalculadoraDeSalarioTest {
     CalculadoraDeSalario calculadora;
+    Funcionario desenvolvedor;
     
     @Before
     public void inicializa(){
@@ -21,32 +22,39 @@ public class CalculadoraDeSalarioTest {
     }
     
     @Test
-    public void deveCalcularSalarioParaDesenvolvedoresComSalarioAbaixoDoLimite() {
-        //cenário do desconto de 10% se salario for menor que 3.000,00
-       
-        Funcionario desenvolvedor = new Funcionario("Mauricio", 1500.0, Cargo.DESENVOLVEDOR);
+    public void deveCalcularSalarioDezPorCento() {
+               
+        this.desenvolvedor = new Funcionario("Mauricio", 1500.0, Cargo.DESENVOLVEDOR);
 
-        double salario = calculadora.calculaSalario(desenvolvedor);
+        double salario = this.calculadora.calculaSalario(this.desenvolvedor);
         assertEquals(1500.0 * 0.9, salario, 0.00001);
     }
     
     @Test
-    public void deveCalcularSalarioParaDesenvolvedoresComSalarioAcimaDoLimite() {
-        //cenário do desconto de 20% se salario for maior que 3.000,00
-       
-        Funcionario desenvolvedor = new Funcionario("Mauricio", 4000.0, Cargo.DESENVOLVEDOR);
+    public void deveCalcularSalarioVintePorCento() {
+               
+        this.desenvolvedor = new Funcionario("Mauricio", 4000.0, Cargo.DESENVOLVEDOR);
 
-        double salario = calculadora.calculaSalario(desenvolvedor);
+        double salario = this.calculadora.calculaSalario(this.desenvolvedor);
         assertEquals(4000.0 * 0.8, salario, 0.00001);
     }
 
      @Test
-    public void deveCalcularSalarioParaDBAsComSalarioAbaixoDoLimite() {
+    public void deveCalcularSalarioQuinzePorCento() {
         
         Funcionario dba = new Funcionario("Mauricio", 500.0, Cargo.DBA);
         
-        double salario = calculadora.calculaSalario(dba);
+        double salario = this.calculadora.calculaSalario(dba);
         assertEquals(500.0 * 0.85, salario, 0.00001);
+    }
+    
+     @Test
+    public void deveCalcularSalarioVinteCincoPorCento() {
+        
+        Funcionario testador = new Funcionario("Mauricio", 3200.0, Cargo.TESTADOR);
+        
+        double salario = this.calculadora.calculaSalario(testador);
+        assertEquals(3200.0 * 0.75, salario, 0.00001);
     }
 
 }
