@@ -1,20 +1,25 @@
 
 package empresa;
 
-import conexao.RegraCalculo;
-
 /**
  *
  * @author valeria
  */
-public class DezOuVintePorCento implements RegraCalculo{
+public class DezOuVintePorCento extends RegraCalculo{
 
     @Override
-    public double calcula(Funcionario funcionario) {
-        if(funcionario.getSalario() > 3000){
-            return funcionario.getSalario() * 0.8;
-        }
-        return funcionario.getSalario() * 0.9;
+    protected int limite() {
+       return 3000;
+    }
+
+    @Override
+    protected double porcentagemAcimaDoLimite() {
+       return 0.8;
+    }
+
+    @Override
+    protected double porcentagemBase() {
+        return 0.9;
     }
     
 }

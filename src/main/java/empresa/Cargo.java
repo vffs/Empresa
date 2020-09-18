@@ -1,7 +1,5 @@
 package empresa;
 
-import conexao.RegraCalculo;
-
 /**
  *
  * @author valeria
